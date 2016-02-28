@@ -8,11 +8,13 @@
 session_start();
 include("config_connect.php");
 include("functions.php");
+$link = new Connect_DB();
+$link->connect();
 //Необходимо подключиться к БД
-$link = mysql_connect($DBSERVER, $DBUSER, $DBPASS)
-or die("Не могу подключиться" );
+#$link = mysql_connect($DBSERVER, $DBUSER, $DBPASS)
+#or die("Не могу подключиться" );
 // сделать $DB текущей базой данных
-mysql_select_db($DB, $link) or die ('Не могу выбрать БД');
+#mysql_select_db($DB, $link) or die ('Не могу выбрать БД');
 
 if(!$_POST['do'] OR $_POST['do'] =='') {
 //Генерируем шестизначный ключ для капчи
@@ -28,6 +30,7 @@ if(!$_POST['do'] OR $_POST['do'] =='') {
     echo '<tr><td>Пароль:</td><td><input name="pass" type="password" value=""></td></tr>';
     echo '<tr><td>Ещё раз пароль:</td><td><input name="rpass" type="password" value=""></td></tr>';
     echo '<tr><td>Эл.адрес</td><td><input name="mail" type="text" value=""></td></tr>';
+    echo '<tr><td>Телефон</td><td><input name="tel" type="text" value=""></td></tr>';
     echo '<tr align="center"><td colspan=2>'.$_SESSION['uid'].'<br/><input name="sid" type="text" value=""></td></tr>';
     echo '<tr><td colspan=2 align="right"><input name="do" type="submit" value="зарегистрировать"></td></tr>';
     echo '</table></form><a href="./">« Назад</a></body></html>';
@@ -54,8 +57,9 @@ if($_POST['do'] !='') {
                     $session_id = md5(date("dmY H:i:s"));
                     $pass = $_POST['pass'];
                     $email = $_POST['mail'];
+                    $tel = $_POST['tel'];
 //Создаем запрос для записи данных в БД
-                    $r = mysql_query("INSERT INTO users VALUES(NULL,'".strtolower($nick)."','".md5($pass)."','".$email."','".$session_id."',1,'".date("d-m-Y H:i:s")."')");
+                    $r = mysql_query("INSERT INTO users VALUES(NULL,'".strtolower($nick)."','".md5($pass)."','".$email."','".$session_id."','".date("d-m-Y H:i:s")."','".$tel."')");
 
 //После запроса выводим сообщение о регистрации
                     if($r) {

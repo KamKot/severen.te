@@ -51,7 +51,6 @@ if($_POST['do'] !='') {
 
 //Осуществляем регистарацию
 //Генерируем uniq_id
-                    #$session_id = md5($_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT'].mktime());
                     $session_id = md5(date("dmY H:i:s"));
                     $pass = $_POST['pass'];
                     $email = $_POST['mail'];

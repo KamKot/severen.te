@@ -85,6 +85,7 @@ else {
                 for($i=0; $i < $N; $i++)
                 {
                     $query = mysql_query("DELETE FROM users WHERE id=$user_del[$i]");
+                    header("Location: index.php?edit=1");
 
                 }
             }

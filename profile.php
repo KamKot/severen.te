@@ -16,9 +16,10 @@ if (isset($_GET['id'])) {
 
     for($i=0; $i < mysql_num_rows($res); $i++){
         echo '
+        <b class="small-1">Здесь вы можете отредактировать учетные данные</b><br>
         <br>
         <div class="row column small-4">
-        <form method="post" action="profile.php?id='.$_GET['id'].'">
+        <form class="small-8 column" method="post" action="profile.php?id='.$_GET['id'].'">
         <label for="nick">Никнэйм</label><input name="nick"  type="text" value='.$r['nickname'].'>
         <label for="mail">E-mail</label><input name="mail"  type="email" value='.$r['email'].'>
         <label for="tel">Телефон</label><input name="tel"  type="tel" value='.$r['telephone'].'>
@@ -28,7 +29,7 @@ if (isset($_GET['id'])) {
     }
     if($_POST['change_user']){
         $result = mysql_query("UPDATE users SET nickname='".$_POST['nick']."', email='".$_POST['mail']."',telephone='".$_POST['tel']."' WHERE id='".$_GET['id']."'");
-        mysql_query($result);
+        $a = mysql_query($result);
         header("Location: profile.php?id=$_GET[id]");
 
     }

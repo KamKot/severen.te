@@ -17,21 +17,8 @@ class Connect_DB{
         return true;
     }
 
-    /*public function processRowSet($rowSet, $singleRow=false)
-    {
-        $resultArray = array();
-        while($row = mysql_fetch_assoc($rowSet))
-        {
-            array_push($resultArray, $row);
-        }
-        if($singleRow === true)
-            return $resultArray[0];
-        return $resultArray;
-    }*/
-
-
-    public function select($table, $where) {
-        $sql = "SELECT * FROM '". $table ."' WHERE $where";
+    public function select($what, $table, $where) {
+        $sql = "SELECT $what FROM '". $table ."' WHERE '". $where ."'";
         $result = mysql_query($sql);
         return $this->$result;
     }

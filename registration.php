@@ -6,6 +6,7 @@
  * Time: 21:35
  */
 session_start();
+include("header.php");
 include("config_connect.php");
 include("functions.php");
 $link = new Connect_DB();
@@ -23,17 +24,17 @@ if(!$_POST['do'] OR $_POST['do'] =='') {
     }
 
 //Выводим форму
-    echo '<html><head><title>Регистрация</title></head><body>';
-    echo '<h2>Форма регистрации</h2>';
-    echo'<form action="" method="POST"><table cellpadding=4 cellspacing=0 border=1 style="border-collapse:collapse">';
-    echo '<tr><td>Никнэйм:</td><td><input name="nick" type="text" value=""></td></tr>';
-    echo '<tr><td>Пароль:</td><td><input name="pass" type="password" value=""></td></tr>';
-    echo '<tr><td>Ещё раз пароль:</td><td><input name="rpass" type="password" value=""></td></tr>';
-    echo '<tr><td>Эл.адрес</td><td><input name="mail" type="text" value=""></td></tr>';
-    echo '<tr><td>Телефон</td><td><input name="tel" type="text" value=""></td></tr>';
-    echo '<tr align="center"><td colspan=2>'.$_SESSION['uid'].'<br/><input name="sid" type="text" value=""></td></tr>';
-    echo '<tr><td colspan=2 align="right"><input name="do" type="submit" value="зарегистрировать"></td></tr>';
-    echo '</table></form><a href="./">« Назад</a></body></html>';
+    echo '
+    <div class="row small-centered">
+    <form class="small-5 column small-centered" action="" method="POST">
+    <label for="nick">Никнэйм</label><input name="nick" type="text" value="">
+    <label for="pass">Пароль</label><input name="pass" type="password" value="">
+    <label for="rpass">Ввести пароль еще раз</label><input name="rpass" type="password" value="">
+    <label for="email">E-mail</label><input name="mail" type="text" value="">
+    <label for="tel">Телефон</label><input name="tel" type="text" value="">
+    <label for="sid">Цифровой код</label><input class="" name="sid" type="text" value=""><b class="small-7 small-centered">'.$_SESSION['uid'].'</b>
+    <input class="tiny button success round right"  name="do" type="submit" value="Зарегистрировать">
+    </div>';
 }
 //Если данные отправлены
 if($_POST['do'] !='') {

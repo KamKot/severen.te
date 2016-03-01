@@ -11,18 +11,11 @@ include("config_connect.php");
 include("functions.php");
 $link = new Connect_DB();
 $link->connect();
-//Необходимо подключиться к БД
-#$link = mysql_connect($DBSERVER, $DBUSER, $DBPASS)
-#or die("Не могу подключиться" );
-// сделать $DB текущей базой данных
-#mysql_select_db($DB, $link) or die ('Не могу выбрать БД');
-
 if(!$_POST['do'] OR $_POST['do'] =='') {
 //Генерируем шестизначный ключ для капчи
     if($_SESSION['uid'] =='') {
         $_SESSION['uid'] = mt_rand(100000,999999);
     }
-
 //Выводим форму
     echo '
     <div class="row small-centered">

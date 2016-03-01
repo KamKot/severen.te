@@ -13,10 +13,7 @@ if (isset($_GET['id'])) {
     $link->connect();
     $res = mysql_query("SELECT * FROM users WHERE id='".$_GET['id']."'");
     $r = mysql_fetch_assoc($res);
-    /*foreach($r as $key => $value){
-        echo "$key - $value<br>";
-    }*/
-    #echo var_dump($r);
+
     for($i=0; $i < mysql_num_rows($res); $i++){
         echo '
         <br>

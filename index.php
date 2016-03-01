@@ -1,10 +1,3 @@
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="static/foundation-5.5.3/css/foundation.css">
-</head>
-<title>User profile</title>
-<body>
 <?php
 /**
  * Created by PhpStorm.

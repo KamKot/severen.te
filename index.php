@@ -55,10 +55,10 @@ else {
     if($_GET['edit']==1) {
         $sql = "SELECT * FROM users";
         $res = mysql_query($sql);
-        $res2 = mysql_query($sql);
+        reset($res);
 
         for ($i = 0; $i < mysql_num_rows($res); $i++) {
-            $f = mysql_fetch_assoc($res2);
+            $f = mysql_fetch_assoc($res);
             echo '<form class="small-11 column" action="index.php?edit=1" method="post">';
             echo "<br><a class='' href='profile.php?id=$f[id]'>$f[nickname]</a>
                   <input class='small-0 column'  type='checkbox' name='user_del[]' value='$f[id]'><br>";

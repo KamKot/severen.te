@@ -10,6 +10,7 @@ echo '
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" type="text/css" href="static/foundation-5.5.3/css/foundation.css">
+     <script src="static/jquery-2.2.1.js"></script>
 </head>
 <title>User profile</title>
 <body>

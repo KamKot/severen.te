@@ -93,5 +93,4 @@ if($_GET['exit']) {
     Header("Location: index.php");
 }
 ?>
-</body>
-</html>
+

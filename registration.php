@@ -27,8 +27,9 @@ if(!$_POST['do'] OR $_POST['do'] =='') {
         $_SESSION['uid'] = mt_rand(100000,999999);
     }
 //Выводим форму
-    echo '<div class="row small-centered">
-    <form id="regform" class="small-5 column small-centered" action="" method="POST">
+    echo '
+        <div class="row small-centered">
+        <form id="regform" class="small-5 column small-centered" action="" method="POST">
         <label for="nick">Никнэйм</label><input  name="nick" type="text" value=""><div id="content"></div>
         <label for="pass">Пароль</label><input name="pass" type="password" value="">
         <label for="rpass">Ввести пароль еще раз</label><input name="rpass" type="password" value="">
@@ -37,7 +38,6 @@ if(!$_POST['do'] OR $_POST['do'] =='') {
         <label for="sid">Цифровой код</label><input class="" name="sid" type="text" value=""><b class="small-7 small-centered">'.$_SESSION['uid'].'</b>
         <input class="tiny button success round right"  name="do" type="submit" value="Зарегистрировать">
 </div>
-
 ';
 }
 
